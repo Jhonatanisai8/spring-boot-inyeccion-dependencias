@@ -10,16 +10,15 @@ import java.util.List;
 @RequestMapping(path = "/api/v1/products")
 public class ProductController {
 
-    private ServiceProduct serviceProduct = new ServiceProduct();
-
-
     @RequestMapping(path = "/getProducts", method = RequestMethod.GET)
     public List<Product> getProducts() {
+        ServiceProduct serviceProduct = new ServiceProduct();
         return serviceProduct.getProducts();
     }
 
     @RequestMapping(path = "/getProducts/{id}", method = RequestMethod.GET)
     public Product getProductById(@PathVariable Long id) {
+        ServiceProduct serviceProduct = new ServiceProduct();
         return serviceProduct.getProduct(id);
     }
 }
