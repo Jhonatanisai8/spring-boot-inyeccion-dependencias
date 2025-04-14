@@ -17,8 +17,10 @@ public class ServiceProduct {
                 .stream().
                 map(product -> {
                     BigDecimal price = product.getPriceProduct().multiply(new BigDecimal("1.50"));
-                    Product newProduct = new Product(product.getIdProduct(), product.getNameProduct(), price);
-                    return product;
+                    //Product newProduct = new Product(product.getIdProduct(), product.getNameProduct(), price);
+                    Product productClone = (Product) product.clone();
+                    productClone.setPriceProduct(price);
+                    return productClone;
                 })
                 .collect(Collectors.toList());
     }
