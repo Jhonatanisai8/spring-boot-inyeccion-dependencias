@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 public class ServiceProduct {
 
-    private ProductRepository productRepository;
+    private ProductRepository productRepository = new ProductRepository();
 
     public List<Product> getProducts() {
         return productRepository.getProducts()
